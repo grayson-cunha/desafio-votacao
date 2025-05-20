@@ -1,6 +1,8 @@
 package com.db.VoteChallenge.controller;
 
-import com.db.VoteChallenge.dto.VotingTopicDTO;
+import com.db.VoteChallenge.documentation.VotingTopicControllerDocumentation;
+import com.db.VoteChallenge.dto.VotingTopicCreateDTO;
+import com.db.VoteChallenge.dto.VotingTopicUpdateDTO;
 import com.db.VoteChallenge.entity.VotingTopic;
 import com.db.VoteChallenge.service.VotingTopicService;
 import org.springframework.http.HttpStatus;
@@ -11,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/voting-topics")
-public class VotingTopicController {
+public class VotingTopicController implements VotingTopicControllerDocumentation {
 
     private final VotingTopicService votingTopicService;
 
@@ -20,7 +22,7 @@ public class VotingTopicController {
     }
 
     @PostMapping
-    public ResponseEntity<VotingTopic> create(@RequestBody VotingTopicDTO votingTopicDTO) {
+    public ResponseEntity<VotingTopic> create(@RequestBody VotingTopicCreateDTO votingTopicDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(votingTopicService.create(votingTopicDTO));
     }
 
@@ -30,7 +32,7 @@ public class VotingTopicController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<VotingTopic> update(@PathVariable Long id, @RequestBody VotingTopicDTO votingTopicDTO) {
+    public ResponseEntity<VotingTopic> update(@PathVariable Long id, @RequestBody VotingTopicUpdateDTO votingTopicDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(votingTopicService.update(id, votingTopicDTO));
     }
 }

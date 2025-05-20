@@ -29,6 +29,8 @@ dependencies {
 
 	compileOnly("org.projectlombok:lombok:1.18.38")
 	annotationProcessor("org.projectlombok:lombok:1.18.38")
+
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.8")
 }
 
 tasks.withType<Test> {

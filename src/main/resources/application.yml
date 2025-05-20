@@ -16,4 +16,3 @@ spring:
     level:
       web: DEBUG
       root: DEBUG
-

@@ -1,7 +1,7 @@
 package com.db.VoteChallenge.service;
 
 import com.db.VoteChallenge.common.exception.VotingTopicAlreadyExistException;
-import com.db.VoteChallenge.dto.VotingTopicDTO;
+import com.db.VoteChallenge.dto.VotingTopicCreateDTO;
 import com.db.VoteChallenge.entity.VotingTopic;
 import com.db.VoteChallenge.repository.VotingTopicRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,11 +24,11 @@ public class VotingTopicServiceTest {
     @InjectMocks
     private VotingTopicService votingTopicService;
 
-    private VotingTopicDTO votingTopicDTO;
+    private VotingTopicCreateDTO votingTopicDTO;
 
     @BeforeEach
     public void setUp() {
-        votingTopicDTO = new VotingTopicDTO("Test Topic", "Test Description");
+        votingTopicDTO = new VotingTopicCreateDTO("Test Topic", "Test Description");
     }
 
     @Test
