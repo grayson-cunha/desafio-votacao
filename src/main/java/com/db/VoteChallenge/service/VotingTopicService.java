@@ -50,9 +50,9 @@ public class VotingTopicService {
 
         VotingTopic existingVotingTopic = existingVotingTopicOptional.get();
 
-        existingVotingTopic.setName(votingTopicData.getName());
-        existingVotingTopic.setDescription(votingTopicData.getDescription());
-        existingVotingTopic.setIsActive(votingTopicData.getIsActive());
+        if(votingTopicData.getName() != null) existingVotingTopic.setName(votingTopicData.getName());
+        if(votingTopicData.getDescription() != null) existingVotingTopic.setDescription(votingTopicData.getDescription());
+        if(votingTopicData.getIsActive() != null) existingVotingTopic.setIsActive(votingTopicData.getIsActive());
         return votingTopicRepository.save(existingVotingTopic);
     }
 }

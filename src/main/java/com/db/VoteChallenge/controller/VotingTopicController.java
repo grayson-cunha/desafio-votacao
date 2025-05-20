@@ -30,7 +30,7 @@ public class VotingTopicController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<VotingTopic> update(@RequestParam Long id, @RequestBody VotingTopicDTO votingTopicDTO) {
+    public ResponseEntity<VotingTopic> update(@PathVariable Long id, @RequestBody VotingTopicDTO votingTopicDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(votingTopicService.update(id, votingTopicDTO));
     }
 }

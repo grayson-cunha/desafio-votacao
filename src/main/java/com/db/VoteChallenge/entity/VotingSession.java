@@ -1,10 +1,10 @@
 package com.db.VoteChallenge.entity;
 
+import com.db.VoteChallenge.common.constants.VotingConstants;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -13,30 +13,28 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
-public class VotingTopic {
+public class VotingSession {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private LocalDateTime duration;
+
+    private Boolean isOpen;
 
     private String description;
 
-    private Boolean isActive;
+    private Long votingTopicId;
 
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime created_at;
 
-    @LastModifiedDate
-    private LocalDateTime updated_at;
-
-    public VotingTopic() {}
-
-    public VotingTopic(String name, String description) {
-        this.name = name;
+    public VotingSession(LocalDateTime duration, String description, Long votingTopicId) {
+        this.duration = duration != null ? duration : VotingConstants.DURATION_DEFAULT_ONE_MINUTE;
         this.description = description;
-        this.isActive = Boolean.TRUE;
+        this.votingTopicId = votingTopicId;
+        this.isOpen = Boolean.TRUE;
     }
 }

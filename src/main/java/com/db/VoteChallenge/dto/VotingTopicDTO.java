@@ -10,8 +10,9 @@ public class VotingTopicDTO {
     private String description;
     private Boolean isActive;
 
-    public VotingTopicDTO(String name, String description) {
+    public VotingTopicDTO(String name, String description, Boolean isActive) {
         this.name = name;
         this.description = description;
+        this.isActive = isActive;
     }
 }
