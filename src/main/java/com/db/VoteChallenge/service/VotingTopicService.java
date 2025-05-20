@@ -1,12 +1,15 @@
 package com.db.VoteChallenge.service;
 
 import com.db.VoteChallenge.common.exception.VotingTopicAlreadyExistException;
+import com.db.VoteChallenge.common.exception.VotingTopicNotFoundException;
 import com.db.VoteChallenge.dto.VotingTopicDTO;
 import com.db.VoteChallenge.entity.VotingTopic;
 import com.db.VoteChallenge.repository.VotingTopicRepository;
 import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VotingTopicService {
@@ -32,4 +35,24 @@ public class VotingTopicService {
         return votingTopicRepository.save(newVotingTopic);
     }
 
+    public List<VotingTopic> findAllIsActive() {
+        return votingTopicRepository.findByIsActiveTrue();
+    }
+
+    public VotingTopic update(Long id, VotingTopicDTO votingTopicData) {
+        Optional<VotingTopic> existingVotingTopicOptional = votingTopicRepository.findById(id);
+
+        if (existingVotingTopicOptional.isEmpty()) {
+            throw new VotingTopicNotFoundException(
+                    MessageFormat.format("VotingTopic with id {0} not found", id)
+            );
+        }
+
+        VotingTopic existingVotingTopic = existingVotingTopicOptional.get();
+
+        existingVotingTopic.setName(votingTopicData.getName());
+        existingVotingTopic.setDescription(votingTopicData.getDescription());
+        existingVotingTopic.setIsActive(votingTopicData.getIsActive());
+        return votingTopicRepository.save(existingVotingTopic);
+    }
 }

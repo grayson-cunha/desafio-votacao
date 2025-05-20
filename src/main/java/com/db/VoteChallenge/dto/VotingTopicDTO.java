@@ -1,13 +1,17 @@
 package com.db.VoteChallenge.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class VotingTopicDTO {
     private String name;
     private String description;
+    private Boolean isActive;
+
+    public VotingTopicDTO(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }

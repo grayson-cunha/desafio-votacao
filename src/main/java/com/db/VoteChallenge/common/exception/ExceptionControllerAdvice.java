@@ -24,4 +24,14 @@ public class ExceptionControllerAdvice {
         );
         return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(VotingTopicNotFoundException.class)
+    @ResponseStatus(code = HttpStatus.NOT_FOUND)
+    public ResponseEntity<ErrorMessage> handleVotingTopicNotFoundException(VotingTopicAlreadyExistException ex) {
+        ErrorMessage errorMessage = new ErrorMessage(
+                HttpStatus.NOT_FOUND.value(),
+                ex.getMessage()
+        );
+        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
 }
