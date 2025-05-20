@@ -31,6 +31,8 @@ public class VotingSession {
     @Column(updatable = false)
     private LocalDateTime created_at;
 
+    public VotingSession() {}
+
     public VotingSession(LocalDateTime duration, String description, Long votingTopicId) {
         this.duration = duration != null ? duration : VotingConstants.DURATION_DEFAULT_ONE_MINUTE;
         this.description = description;

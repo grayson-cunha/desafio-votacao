@@ -10,19 +10,27 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @EntityListeners(AuditingEntityListener.class)
-public class Associate {
+public class Vote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private Boolean isApproved;
+
+    private Long voteSessionId;
+
+    private Long associateId;
 
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    public Associate(String name) {
-        this.name = name;
+    public Vote() {}
+
+    public Vote(Boolean isApproved, Long voteSessionId, Long associateId) {
+        this.isApproved = isApproved;
+        this.voteSessionId = voteSessionId;
+        this.associateId = associateId;
     }
 }

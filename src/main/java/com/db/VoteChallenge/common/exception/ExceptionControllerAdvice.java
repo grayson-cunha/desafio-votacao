@@ -27,11 +27,21 @@ public class ExceptionControllerAdvice {
 
     @ExceptionHandler(VotingTopicNotFoundException.class)
     @ResponseStatus(code = HttpStatus.NOT_FOUND)
-    public ResponseEntity<ErrorMessage> handleVotingTopicNotFoundException(VotingTopicAlreadyExistException ex) {
+    public ResponseEntity<ErrorMessage> handleVotingTopicNotFoundException(VotingTopicNotFoundException ex) {
         ErrorMessage errorMessage = new ErrorMessage(
                 HttpStatus.NOT_FOUND.value(),
                 ex.getMessage()
         );
         return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(VotedForSessionDuplicatedException.class)
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ErrorMessage> handleVotedForSessionDuplicatedException(VotedForSessionDuplicatedException ex) {
+        ErrorMessage errorMessage = new ErrorMessage(
+                HttpStatus.BAD_REQUEST.value(),
+                ex.getMessage()
+        );
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
 }

@@ -5,6 +5,9 @@ import com.db.VoteChallenge.entity.VotingSession;
 import com.db.VoteChallenge.repository.VotingSessionRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Optional;
+
 @Service
 public class VotingSessionService {
 
@@ -23,5 +26,13 @@ public class VotingSessionService {
                 );
 
         return votingSessionRepository.save(newVotingSession);
+    }
+
+    public Boolean isVoteSessionReceivingVotes(Long votingSessionId) {
+        VotingSession votingSession = votingSessionRepository.findById(votingSessionId).get();
+
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
+        return currentDateTime.isBefore(votingSession.getDuration());
     }
 }
