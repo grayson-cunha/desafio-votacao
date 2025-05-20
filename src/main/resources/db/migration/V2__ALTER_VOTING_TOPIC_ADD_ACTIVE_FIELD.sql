@@ -1,0 +1,1 @@
+ALTER TABLE public.voting_topic ADD is_active bool DEFAULT true;

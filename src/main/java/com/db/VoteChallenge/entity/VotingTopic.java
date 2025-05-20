@@ -23,6 +23,8 @@ public class VotingTopic {
 
     private String description;
 
+    private Boolean isActive;
+
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime created_at;
