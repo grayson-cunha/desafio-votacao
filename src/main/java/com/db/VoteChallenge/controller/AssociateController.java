@@ -1,6 +1,6 @@
 package com.db.VoteChallenge.controller;
 
-import com.db.VoteChallenge.documentation.AssociateDocumentation;
+import com.db.VoteChallenge.documentation.AssociateControllerDocumentation;
 import com.db.VoteChallenge.dto.AssociateDTO;
 import com.db.VoteChallenge.entity.Associate;
 import com.db.VoteChallenge.service.AssociateService;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/associates")
-public class AssociateController implements AssociateDocumentation {
+public class AssociateController implements AssociateControllerDocumentation {
 
     private final AssociateService associateService;
 

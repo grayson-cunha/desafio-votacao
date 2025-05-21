@@ -1,5 +1,6 @@
 package com.db.VoteChallenge.controller;
 
+import com.db.VoteChallenge.documentation.VoteControllerDocumentation;
 import com.db.VoteChallenge.dto.VoteCountDTO;
 import com.db.VoteChallenge.dto.VoteDTO;
 import com.db.VoteChallenge.entity.Vote;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/votes")
-public class VoteController {
+public class VoteController implements VoteControllerDocumentation {
 
     private final VoteService voteService;
 
