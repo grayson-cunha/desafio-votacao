@@ -2,6 +2,7 @@ package com.db.VoteChallenge.service;
 
 import com.db.VoteChallenge.common.exception.VoteSessionAlreadyClosedException;
 import com.db.VoteChallenge.common.exception.VotedForSessionDuplicatedException;
+import com.db.VoteChallenge.dto.VoteCountDTO;
 import com.db.VoteChallenge.dto.VoteDTO;
 import com.db.VoteChallenge.entity.Vote;
 import com.db.VoteChallenge.repository.VoteRepository;
@@ -45,5 +46,9 @@ public class VoteService {
         Vote vote = new Vote(voteDTO.getIsApproved(), voteDTO.getVoteSessionId(), voteDTO.getAssociateId());
 
         return voteRepository.save(vote);
+    }
+
+    public VoteCountDTO countVotes(Long voteSessionId) {
+        return voteRepository.countVotesBySessionId(voteSessionId);
     }
 }
