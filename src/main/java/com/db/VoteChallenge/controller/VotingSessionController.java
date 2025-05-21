@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/voting-sessions")
 public class VotingSessionController implements VotingSessionControllerDocumentation {
@@ -21,5 +23,10 @@ public class VotingSessionController implements VotingSessionControllerDocumenta
     @PostMapping
     public ResponseEntity<VotingSession> openVoteSession(@RequestBody VotingSessionDTO votingSessionDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(votingSessionService.openVotingSession(votingSessionDTO));
+    }
+
+    @GetMapping("/topic/{votingTopicId}")
+    public ResponseEntity<List<VotingSession>> findByVotingTopicId(@PathVariable("votingTopicId") Long votingTopicId) {
+        return ResponseEntity.status(HttpStatus.OK).body(votingSessionService.findByVotingTopicId(votingTopicId));
     }
 }

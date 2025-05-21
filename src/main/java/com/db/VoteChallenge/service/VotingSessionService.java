@@ -6,6 +6,7 @@ import com.db.VoteChallenge.repository.VotingSessionRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class VotingSessionService {
@@ -33,5 +34,9 @@ public class VotingSessionService {
         LocalDateTime currentDateTime = LocalDateTime.now();
 
         return currentDateTime.isBefore(votingSession.getDuration());
+    }
+
+    public List<VotingSession> findByVotingTopicId(Long votingTopicId) {
+        return votingSessionRepository.findByVotingTopicId(votingTopicId);
     }
 }
