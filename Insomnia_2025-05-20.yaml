@@ -1,0 +1,252 @@
+type: collection.insomnia.rest/5.0
+name: vote-challenge
+meta:
+  id: wrk_d2653c9f712f4633ad16cbc6efae712b
+  created: 1747698495296
+  modified: 1747698495296
+collection:
+  - name: Associate
+    meta:
+      id: fld_771155b79f834ee2b06e797fec2afb13
+      created: 1747784705259
+      modified: 1747784705259
+      sortKey: -1747784705259
+    children:
+      - url: localhost:8080/associates
+        name: Create Associate
+        meta:
+          id: req_e0aaaa17c32b4594812d671aa511c1dc
+          created: 1747784698698
+          modified: 1747785126020
+          isPrivate: false
+          sortKey: -1747784765670
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Teste2"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Voting Topic
+    meta:
+      id: fld_c3c09ca989d540aa843677ab0ee9797d
+      created: 1747784713076
+      modified: 1747784713076
+      sortKey: -1747784713076
+    children:
+      - url: localhost:8080/voting-topics
+        name: Create Voting Topic
+        meta:
+          id: req_bb9e753d857442e2add6263a3b7b52cf
+          created: 1747698501275
+          modified: 1747784748626
+          isPrivate: false
+          sortKey: -1747784740242
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Devemos usar Scrum",
+            	"description": "Pauta para votar a favor do Scrum"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/voting-topics
+        name: Get All Voting Topic Active
+        meta:
+          id: req_234313a5c1f549f58c7b2c79e5282eab
+          created: 1747765787277
+          modified: 1747784740211
+          isPrivate: false
+          sortKey: -1747784740142
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/voting-topics/1
+        name: Update Voting Topic
+        meta:
+          id: req_9447e28f029e4843ba63ccb1b07e952d
+          created: 1747766669195
+          modified: 1747784797802
+          isPrivate: false
+          sortKey: -1747784740342
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"isActive": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Voting Session
+    meta:
+      id: fld_b2e4abaf42f8474f939dcce73bb5bcff
+      created: 1747784720327
+      modified: 1747784720327
+      sortKey: -1747784720327
+    children:
+      - url: localhost:8080/voting-sessions
+        name: Create Voting Session
+        meta:
+          id: req_88ab438befd74fd9a511f52da9844148
+          created: 1747767302901
+          modified: 1747785565136
+          isPrivate: false
+          sortKey: -1747784730153
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"description": "Sessão relacionada a terceira alternativa",
+            	"votingTopicId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/voting-sessions/topic/1
+        name: Get All Voting Session
+        meta:
+          id: req_99fb56833ef249ffb7e4d417e0dc9cd2
+          created: 1747787946049
+          modified: 1747788024391
+          isPrivate: false
+          sortKey: -1747784730253
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Vote
+    meta:
+      id: fld_ff66fd6ef983498e97bf1241984fe8a5
+      created: 1747784772616
+      modified: 1747784772616
+      sortKey: -1747784772616
+    children:
+      - url: localhost:8080/votes
+        name: Create Vote
+        meta:
+          id: req_9ebabaef625541de90f4635e951a9d6f
+          created: 1747784681602
+          modified: 1747785572051
+          isPrivate: false
+          sortKey: -1747784781879
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"isApproved": true,
+            	"voteSessionId": 3,
+            	"associateId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/votes/session/3
+        name: Count Votes
+        meta:
+          id: req_21607a0f9ed44d009b870e80f43cadda
+          created: 1747787343097
+          modified: 1747787364819
+          isPrivate: false
+          sortKey: -1747787343097
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_ba5d248e5a9bb417086356a3b42198df4cf31451
+    created: 1747698495302
+    modified: 1747698495302
+environments:
+  name: Base Environment
+  meta:
+    id: env_ba5d248e5a9bb417086356a3b42198df4cf31451
+    created: 1747698495300
+    modified: 1747698495300
+    isPrivate: false
