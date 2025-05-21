@@ -1,11 +1,12 @@
 plugins {
 	java
+	application
 	id("org.springframework.boot") version "3.4.5"
 	id("io.spring.dependency-management") version "1.1.7"
 }
 
-group = "com.example"
-version = "0.0.1-SNAPSHOT"
+group = "com.db.VoteChallenge"
+version = "1.0.0-SNAPSHOT"
 
 java {
 	toolchain {
@@ -35,4 +36,9 @@ dependencies {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.bootJar {
+	archiveFileName.set("app.jar")
+	mainClass.set("com.db.VoteChallenge.VoteChallengeApplication")
 }

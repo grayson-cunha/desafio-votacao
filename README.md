@@ -30,7 +30,7 @@
 
 Access the following link http://localhost:8080/swagger-ui/index.html
 
-## How to run?
+## How to run without manually?
 
 1. If you don`t have docker is important to install follow [this setup](https://docs.docker.com/desktop/?_gl=1*12sx6h4*_gcl_au*Mjg2NDY0ODY0LjE3NDc3ODg0ODg.*_ga*MTg5Mzk3ODM3OC4xNzQ3Nzg4NDg5*_ga_XJWPQMJYHQ*czE3NDc3ODg0ODgkbzEkZzEkdDE3NDc3ODg0ODkkajU5JGwwJGgwJGQwLVVOem9VZkVBbGZoSnpqQ2lENGFuUFNjam9CdFFRdVR3)
 2. After that you can execute this `docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=1234 -d postgres`
@@ -39,3 +39,9 @@ Access the following link http://localhost:8080/swagger-ui/index.html
 5. Run the application and the tables will be created with Flyway
 6. The application can be acessed by localhost:8080
 
+## How to run with docker-compose?
+
+1. Copy the .env.example file and remove the .example part
+2. Define the environments variable for postgres and spring
+3. Execute the command `docker-compose up --build`
+4. Enjoy!
