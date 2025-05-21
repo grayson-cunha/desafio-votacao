@@ -21,8 +21,6 @@ public class VotingSession {
 
     private LocalDateTime duration;
 
-    private Boolean isOpen;
-
     private String description;
 
     private Long votingTopicId;
@@ -37,6 +35,5 @@ public class VotingSession {
         this.duration = duration != null ? duration : VotingConstants.DURATION_DEFAULT_ONE_MINUTE;
         this.description = description;
         this.votingTopicId = votingTopicId;
-        this.isOpen = Boolean.TRUE;
     }
 }
